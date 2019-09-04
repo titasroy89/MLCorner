@@ -1,6 +1,6 @@
 The most popular packages for Machine Learning are python based. 
 
-Data after (pre)selection with one of UHH2 models is stored in root format and should be converted into numpy or some other format to be useful for python-based ML tools.
+Data after (pre)selection with one of UHH2 models is stored in ROOT format and should be converted into numpy or some other format to be useful for python-based ML tools.
 
 Pioneers of Deep Learning in our group (Andrea Malara and Arne Reimers) developed scripts for UHH2 ntuples to NumPy conversion, which became a base for UHH2toNumpy tool.
  
