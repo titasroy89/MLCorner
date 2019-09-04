@@ -10,7 +10,7 @@ The tool contains following pieces:
 - constants.py to specify paths to inputs and outputs, etc
 - ModuleRunner.py with ReadoutMLVariables function, which sets variables for readout_to_numpy_arrays function from functions_ml.py 
 
-As user you should modify only steer.py and constants.py and the rest should run smoothly:
+As user you should modify only steer.py and constants.py, the rest should run smoothly:
 1) cd UHH2toNumpy
 2) modify  steer.py and constants.p
 3) python steer.py
