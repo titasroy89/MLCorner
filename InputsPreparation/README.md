@@ -12,7 +12,7 @@ The tool contains following pieces:
 
 As user you should modify only steer.py and constants.py, the rest should run smoothly:
 1) cd UHH2toNumpy
-2) modify  steer.py and constants.p
+2) modify  steer.py and constants.py
 3) python steer.py
 
 
