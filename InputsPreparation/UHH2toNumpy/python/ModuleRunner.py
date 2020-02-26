@@ -43,8 +43,8 @@ class ModuleRunner:
                 filename += 'DATA.' + proc + '.root'
             outpath = self.outpath + '/MLInput/'+syst_var+'/'
             procoutname = proc
-            if proc == 'RSGluon':
-                procoutname = 'RSGluon_All'
+            if proc == 'Zprime':
+                procoutname = 'Zprime_All'
             readout_to_numpy_arrays(infilename=filename, treename='AnalysisTree', outpath=outpath, outname=procoutname, unwanted_tags=unwanted_tags, unwanted_exact_tags=unwanted_exact_tags)
 
    

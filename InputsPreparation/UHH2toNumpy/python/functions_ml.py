@@ -20,11 +20,14 @@ def readout_to_numpy_arrays(infilename, treename, outpath, outname, unwanted_tag
     print 'creating numpy arrays for input sample %s' % (outname)
     # Get AnalysisTree
     entries = infile.AnalysisTree.GetEntriesFast()
-    # print entries
+#    print 'Entries',entries
     tree = infile.Get(treename)
+ #   print 'tree',tree
     leaves = tree.GetListOfLeaves()
+#    print 'leaves',leaves
     variables = []
-    eventweights = ['eventweight']
+   
+    eventweights = ['weight']
     for leaf in leaves:
         write = True
         for tag in unwanted_tags:
@@ -32,16 +35,24 @@ def readout_to_numpy_arrays(infilename, treename, outpath, outname, unwanted_tag
         for tag in unwanted_exact_tags:
             if tag == leaf.GetName(): write = False
         if write: variables.append(leaf.GetName())
+    #print variables
+    #print "len(variables): ",len(variables)
+    variables = list(set(c.strip() for c in variables))
     print variables
     print "len(variables): ",len(variables)
-
+    if 'eventweight' in variables:
+	print 'True, present'
+    print eventweights 
     chunksize = 200000
     maxidx = int(entries/float(chunksize)) + 1
     if entries % chunksize == 0: maxidx -= 1
     print entries, chunksize, maxidx
     for i in range(maxidx):
+	print "my matrix"
         mymatrix = root2array(filenames=infilename, treename=treename, branches=variables, start=i*chunksize, stop=(i+1)*chunksize)
+	print "root 2 array"
         mymatrix = rec2array(mymatrix)
+	print "my weights"
         myweights = root2array(filenames=infilename, treename=treename, branches=eventweights, start=i*chunksize, stop=(i+1)*chunksize)
         myweights = rec2array(myweights)
 
